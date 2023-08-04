@@ -1,0 +1,26 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(28, 44, 57);
+  color: white;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container{
+    list-style: none;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.card{
+    text-align: center;
+    margin-bottom: 20px;
+}
