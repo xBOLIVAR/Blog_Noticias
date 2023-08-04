@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import * as newsController from './controller/newsController';
 import * as commentController from './controller/commentController';
+import { syncDatabase } from './database';
 
 const app = express();
 const port = 8080;
@@ -22,6 +23,8 @@ app.get('/news/:newsId/comments', commentController.getCommentsByNewsIdControlle
 app.post('/news/:newsId/comments', commentController. createCommentController);
 app.put('/comments/:commentId', commentController.updateCommentController);
 app.delete('/comments/:commentId', commentController.deleteCommentController);
+
+syncDatabase();
 
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);

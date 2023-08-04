@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaUserAlt } from "react-icons/fa";
 import DeleteComment from "./DeleteComment";
+import toast from "react-hot-toast";
 
 function Comments({ id }: any) {
   const { register, handleSubmit, reset } = useForm();
@@ -29,6 +30,7 @@ function Comments({ id }: any) {
     else {
       reset();
       fetchComments();
+      toast.success("Comentarion Creado")
     }
   };
 
@@ -45,7 +47,7 @@ function Comments({ id }: any) {
           </h3>
           <textarea
             placeholder="Cementario"
-            {...register("content")}
+            {...register("content", {required:true})}
           ></textarea>
           <button type="submit">Publicar Comentario</button>
         </form>

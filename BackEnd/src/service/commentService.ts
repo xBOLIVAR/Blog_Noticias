@@ -16,7 +16,7 @@ export const createComment = async (newsId: number, content: string) => {
     throw new Error('Noticia no encontrada');
   }
 
-  const comment = await Comment.create({ id: uuidv4(), content, newsId });
+  const comment = await Comment.create({ content, newsId });
   return comment;
 };
 

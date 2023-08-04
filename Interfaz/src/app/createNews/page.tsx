@@ -24,6 +24,7 @@ function CreateNews() {
 
   return (
     <>
+      <GoBack />
       <h1>Crear Noticia</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="title">Titulo</label>
@@ -48,7 +49,6 @@ function CreateNews() {
       {error && (
         <h3>Error al crear la noticia</h3>
       )}
-      <GoBack />
     </>
   );
 }

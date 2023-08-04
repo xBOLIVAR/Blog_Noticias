@@ -5,7 +5,7 @@ function CreateButton() {
   const router = useRouter();   
 
   return (
-    <button onClick={() => router.push(`/createNews`)}>
+    <button className="buttonAnimation" onClick={() => router.push(`/createNews`)}>
       Crear Noticia
     </button>
   );

@@ -55,6 +55,7 @@ export const deleteNewsController = async (req: Request, res: Response) => {
     await deleteNews(Number(id));
     return res.status(204).json();
   } catch (error) {
+    console.log("🚀 ~ file: newsController.ts:58 ~ deleteNewsController ~ error:", error)
     return res.status(500).json({ error: "Error al eliminar la noticia" });
   }
 };

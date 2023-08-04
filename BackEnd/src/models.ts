@@ -6,12 +6,14 @@ class News extends Model {
   public id!: number;
   public title!: string;
   public content!: string;
+  public readonly comments?: Comment[]
 }
 
 // Modelo de comentarios
 class Comment extends Model {
-  public id!: number;
+  public id!: string;
   public content!: string;
+  public newsId!: number;
 }
 
 News.init(
@@ -40,8 +42,8 @@ News.init(
 Comment.init(
   {
     id: {
-      type: DataTypes.STRING,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     content: {
@@ -50,7 +52,7 @@ Comment.init(
     },
     newsId: {
       // Agrega esta línea
-      type: DataTypes.INTEGER, // Asegúrate que sea el tipo de dato correcto (integer)
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
@@ -60,5 +62,13 @@ Comment.init(
     timestamps: false,
   }
 );
+
+News.hasMany(Comment, {
+  foreignKey: "newsId", // Nombre de la columna que hace referencia a "id" en "news"
+  onDelete: "CASCADE", // Acción de eliminación en cascada
+});
+Comment.belongsTo(News, {
+  foreignKey: "newsId",
+});
 
 export { News, Comment };

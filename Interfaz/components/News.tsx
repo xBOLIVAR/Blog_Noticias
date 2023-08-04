@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { FaNewspaper } from "react-icons/fa";
 
 export interface NewsItem {
   id: number;
@@ -13,6 +14,7 @@ interface Props {
 
 function NewData({ news }: Props) {
   const router = useRouter();
+  const maxLength = 350;
 
   return (
     <>
@@ -20,14 +22,27 @@ function NewData({ news }: Props) {
         <ul className="container">
           {news.map((newData: any) => (
             <li
-              className="card"
+              className="card float"
               key={newData.id}
               onClick={() => {
                 router.push(`/new/${newData.id}`);
               }}
             >
-              <h5>{newData.title}</h5>
-              <p>{newData.content}</p>
+              <div className="paper">
+                <div className="decoration"></div>
+                <div className="decoration"></div>
+                <div className="decoration"></div>
+                <div className="infoCard">
+                  <h3>
+                    <FaNewspaper /> {newData.title}
+                  </h3>
+                  <hr />
+                  <p>
+                    {newData.content.slice(0, maxLength) +
+                      (newData.content.length > maxLength ? "..." : "")}
+                  </p>
+                </div>
+              </div>
             </li>
           ))}
         </ul>

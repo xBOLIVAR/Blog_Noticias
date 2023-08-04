@@ -22,7 +22,8 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}</body>
     </html>
   );
 }

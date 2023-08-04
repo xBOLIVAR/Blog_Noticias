@@ -5,7 +5,7 @@ function EditButton({ id }: any) {
   const router = useRouter();
 
   return (
-    <button onClick={() => router.push(`/editNews/${id}`)}>
+    <button className="buttonAnimation" onClick={() => router.push(`/editNews/${id}`)}>
       Editar Noticia
     </button>
   );
