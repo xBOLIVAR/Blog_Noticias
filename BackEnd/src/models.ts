@@ -64,8 +64,8 @@ Comment.init(
 );
 
 News.hasMany(Comment, {
-  foreignKey: "newsId", // Nombre de la columna que hace referencia a "id" en "news"
-  onDelete: "CASCADE", // Acción de eliminación en cascada
+  foreignKey: "newsId",
+  onDelete: "CASCADE",
 });
 Comment.belongsTo(News, {
   foreignKey: "newsId",

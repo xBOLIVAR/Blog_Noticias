@@ -1,5 +1,4 @@
 import { Comment, News } from "../models";
-import { v4 as uuidv4 } from 'uuid';
 
 export const getCommentsByNewsId = async (newsId: number) => {
   const news = await News.findByPk(newsId);

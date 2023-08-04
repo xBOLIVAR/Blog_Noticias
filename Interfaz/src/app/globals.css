@@ -104,6 +104,7 @@ li{
   color: black;
   flex-direction: column;
   transition: all 0.3s ease;
+  min-width: 100%;
   
   view-timeline-name: --image;
   view-timeline-axis: show;
